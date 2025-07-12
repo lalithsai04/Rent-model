@@ -60,12 +60,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # Drop rows with NaN in 'Price_Cleaned'
 df.dropna(subset=['Price_Cleaned'], inplace=True)
-
-# 6) TRAIN / TEST SPLIT  +  SCALING
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=.2,random_state=42)
-scaler = StandardScaler()
-X_train_s, X_test_s = scaler.fit_transform(X_train), scaler.transform(X_test)
-
 # 7) BASELINE OLS
 baseline = LinearRegression().fit(X_train_s, y_train)
 def metrics(y,t): return {"MAE":mean_absolute_error(y,t),
