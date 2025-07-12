@@ -25,14 +25,6 @@ from  sklearn.metrics  import  accuracy_score , precision_score , recall_score,c
 
 df = pd.read_csv("Real Estate Data V21.csv")
 
-display(df)
-
-df.info()
-
-df.describe()
-
-df.isnull().sum().sum()
-
 import re
 
 def clean_price(price_str):
