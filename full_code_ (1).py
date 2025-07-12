@@ -61,10 +61,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 # Drop rows with NaN in 'Price_Cleaned'
 df.dropna(subset=['Price_Cleaned'], inplace=True)
 
-X = df[["Total_Area","Baths","Price_per_SQFT",
-        "Location_Encoded","Balcony_Encoded","Area_per_Bath"]]
-y = df["Price_Cleaned"]
-
 # 6) TRAIN / TEST SPLIT  +  SCALING
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=.2,random_state=42)
 scaler = StandardScaler()
@@ -108,12 +104,6 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import make_pipeline
 
-# Drop rows where 'Price_Cleaned' is NaN
-df_cleaned = df.dropna(subset=['Price_Cleaned']).copy()
-
-X_poly = df_cleaned[['Total_Area']]
-y_poly = df_cleaned['Price_Cleaned']
-
 # Split data into training and testing sets
 X_train_poly, X_test_poly, y_train_poly, y_test_poly = train_test_split(X_poly, y_poly, test_size=0.2, random_state=42)
 
@@ -131,22 +121,6 @@ y_pred_poly = poly_model.predict(X_test_poly)
 from sklearn.metrics import r2_score, mean_squared_error
 print(f"R-squared: {r2_score(y_test_poly, y_pred_poly)}")
 print(f"Mean Squared Error: {mean_squared_error(y_test_poly, y_pred_poly)}")
-
-# Optional: Visualize the polynomial fit
-plt.figure(figsize=(10, 6))
-plt.scatter(X_test_poly, y_test_poly, color='blue', label='Actual')
-# To plot the polynomial curve, we need to sort the test data
-sort_axis = np.argsort(X_test_poly.values.flatten())
-plt.plot(X_test_poly.values[sort_axis], y_pred_poly[sort_axis], color='red', label='Polynomial Fit')
-plt.title("Polynomial Regression Fit")
-plt.xlabel("Total Area")
-plt.ylabel("Price Cleaned")
-plt.legend()
-plt.show()
-
-
-
-# prompt: create a decision tree based on this data train and predict the data
 
 from sklearn.tree import DecisionTreeRegressor
 
