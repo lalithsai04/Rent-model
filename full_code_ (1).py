@@ -23,7 +23,7 @@ from  sklearn.metrics  import  accuracy_score , precision_score , recall_score,c
 
 """# Data Exploration and Cleaning"""
 
-df = pd.read_csv(Real Estate Data V21.csv")
+df = pd.read_csv("Real Estate Data V21.csv")
 
 display(df)
 
