@@ -10,7 +10,6 @@ Original file is located at
 # Commented out IPython magic to ensure Python compatibility.
 import numpy as np
 import pandas as pd
-import seaborn as sns
 # %matplotlib inline
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
