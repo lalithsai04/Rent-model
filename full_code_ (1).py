@@ -312,7 +312,6 @@ import streamlit as st
 import numpy as np
 import joblib
 
-pip install streamlit
 # Load model and encoders
 model = joblib.load("price_model.pkl")
 scaler = joblib.load("scaler.pkl")
