@@ -47,8 +47,6 @@ df['Price_Cleaned'] = df['Price'].apply(clean_price)
 
 
 
-display(df)
-
 from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
