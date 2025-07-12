@@ -66,7 +66,6 @@ y = df['Price_Cleaned']
 
 df['Price_Log'] = np.log1p(df['Price_Cleaned'])
 
-sns.histplot(df['Price_Log'], bins=50, kde=True)
 plt.title("Log-Transformed Price Distribution")
 plt.xlabel("Log(Price + 1)")
 plt.show()
