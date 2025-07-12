@@ -339,5 +339,3 @@ if st.button("Predict Rent Price"):
 
     predicted_price = model.predict(X_scaled)[0]
     st.success(f"🏷️ Predicted Rent Price: ₹ {predicted_price:,.0f}")
-
-!pip install streamlit
