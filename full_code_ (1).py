@@ -58,7 +58,6 @@ import numpy as np
 import joblib
 
 # Load model and encoders
-model = joblib.load("price_model.pkl")
 scaler = joblib.load("scaler.pkl")
 le_loc = joblib.load("location_encoder.pkl")
 le_bal = joblib.load("balcony_encoder.pkl")
