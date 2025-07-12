@@ -53,49 +53,6 @@ le = LabelEncoder()
 df['Location_Encoded'] = le.fit_transform(df['Location'])
 df['Balcony_Encoded'] = le.fit_transform(df['Balcony'])
 
-
-
-"""# Data Visualization
-
-"""
-
-df['Area_per_Bath'] = df['Total_Area'] / df['Baths']
-
-X = df[['Total_Area', 'Baths', 'Price_per_SQFT', 'Location_Encoded', 'Balcony_Encoded', 'Area_per_Bath']]
-y = df['Price_Cleaned']
-
-df['Price_Log'] = np.log1p(df['Price_Cleaned'])
-
-plt.title("Log-Transformed Price Distribution")
-plt.xlabel("Log(Price + 1)")
-plt.show()
-
-df['Area_Log'] = np.log1p(df['Total_Area'])
-
-plt.figure(figsize=(10,6))
-sns.scatterplot(x='Area_Log', y='Price_Log', data=df)
-plt.title("Log Price vs Log Total Area")
-plt.xlabel("Log(Total Area + 1)")
-plt.ylabel("Log(Price + 1)")
-plt.show()
-
-plt.figure(figsize=(10,6))
-sns.boxplot(x='Baths', y='Price_Log', data=df)
-plt.title("Log Price by Number of Bathrooms")
-plt.xlabel("Number of Bathrooms")
-plt.ylabel("Log(Price + 1)")
-plt.show()
-
-plt.figure(figsize=(8, 6))
-sns.heatmap(
-    df[['Total_Area', 'Baths', 'Price_per_SQFT', 'Area_per_Bath', 'Price_Cleaned']].corr(),
-    annot=True,
-    cmap='coolwarm',
-    fmt='.2f'
-)
-plt.title("Correlation Heatmap")
-plt.show()
-
 """# Model Building and Hyperparameter Tuning"""
 
 from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
